@@ -1,9 +1,9 @@
 package tn.esprit.gestion.Entite;
 
-public class Animal {
-   private String family,name;
-   private int age;
-    private boolean isMammal;
+public  class Animal {
+   protected String family,name;
+   protected int age;
+    protected boolean isMammal;
 
     public String getFamily() {
         return family;
@@ -54,7 +54,10 @@ public Animal(int age,String fam)
     family=fam;
 }
 public  Animal()
-{}
+{
+
+    System.out.println("Je suis Animal");
+}
     public Animal(int age,String fam,String name,boolean isMa)
     {
         this.age=age;
