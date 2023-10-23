@@ -7,7 +7,11 @@ public class Zoo {
   private  int nbrAnimal=0;
    private Animal [] animals;
 
+   private static final int MAX_AQU=10;
+   private Aquatic [] tabAqua=new Aquatic[MAX_AQU];
     private static int nbTotalAn;
+
+    private int nbAqua=0;
 
     public String getName() {
         return name;
@@ -47,7 +51,34 @@ public class Zoo {
         return true;
     }
 
+    public void addAqua(Aquatic a)
+    {
+        if(nbAqua<MAX_AQU)
+        {
+            tabAqua[nbAqua]=a;
+            nbAqua++;
+            System.out.println("Animal Aquatic ajouté");
+        }
+        else{
+            System.out.println("le zoo est plein");
+        }
 
+    }
+    public void displayAqu()
+    {
+        for (int i=0;i<nbAqua;i++)
+        {
+            System.out.println(tabAqua[i].toString());
+        }
+    }
+
+    public void testSwim()
+    {
+        for (int i=0;i<nbAqua;i++)
+        {
+            tabAqua[i].swim();
+        }
+    }
     public static int nbTotal()
     {
 
@@ -122,5 +153,28 @@ public class Zoo {
         if(nbrAnimal==animals.length)
             return true;
         return false;
+    }
+    /*public float maxPenguinSwimmingDepth()
+    {
+
+        for (int i=0;i<nbAqua;i++)
+        {
+            tabAqua[i].
+        }
+    }*/
+
+    public void nbrAquaParType()
+
+    {
+        int nbPen=0,nbDol=0;
+        for (int i=0;i<nbAqua;i++)
+        {
+          if (tabAqua[i] instanceof Penguin)
+              nbPen++;
+          if (tabAqua[i] instanceof Dolphin)
+              nbDol++;
+        }
+        System.out.println("Le nombre de penguin :"+nbPen);
+        System.out.println("Le nombre de Doplphin"+nbDol);
     }
 }
